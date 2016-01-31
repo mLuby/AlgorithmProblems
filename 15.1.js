@@ -50,4 +50,18 @@ console.log(isBst(nonBst), false)
 3   5
    9
 */
+let closeBst = makeNode(null, 7)
+closeBst.l = makeNode(closeBst, 3)
+closeBst.l.l = makeNode(closeBst.l, 2)
+closeBst.l.r = makeNode(closeBst.l, 5)
+closeBst.r = makeNode(closeBst, 13)
+closeBst.r.l = makeNode(closeBst.r, 4)
+closeBst.r.r = makeNode(closeBst.r, 17)
+console.log(isBst(closeBst), false)
+/*
+    7
+  3    13
+2  5  4  17
+*/
+
 // 25m
