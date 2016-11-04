@@ -18,7 +18,7 @@ function makeTempTracker () {
       mean = (mean * numTemps + temp)/(numTemps + 1)
       numTemps = numTemps + 1
       counts[temp] = counts[temp] ? counts[temp] + 1 : 1
-      mode = Number(Object.keys(counts).reduce((max, key) => counts[max] > counts[key] ? max : key))
+      mode = counts[mode] > counts[temp] ? mode : temp
     },
     getMax: () => max, //returns the highest temp we've seen so far
     getMin: () => min, //returns the lowest temp we've seen so far
@@ -41,7 +41,7 @@ t.insert(60)
 expect(t.getMax(), 70, "getMax")
 expect(t.getMin(), 60, "getMin")
 expect(t.getMean(), 65, "getMean")
-expect(t.getMode(), 70, "getMode") // 60 or 70 both valid
+expect(t.getMode(), 60, "getMode") // 60 or 70 both valid
 t.insert(80)
 expect(t.getMax(), 80, "getMax")
 expect(t.getMin(), 60, "getMin")
